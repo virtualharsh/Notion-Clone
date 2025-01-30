@@ -1,7 +1,7 @@
 import React from "react";
 import Items from "./Items";
-import GeneralMenu from "./GeneralMenu";
-
+import GeneralList from "./GeneralList";
+import TopList from "./TopList";
 
 
 const SidebarLayout = () => {
@@ -23,20 +23,25 @@ const SidebarLayout = () => {
                         ><i className="ri-menu-line text-xl cursor-pointer"></i></button>
                     </div>
                 </div>
-
+                <TopList />
                 <Items />
-
-                <GeneralMenu />
+                <GeneralList />
             </div>
             
             <div>
                 <button
-                    className={`absolute z-0 top-0 p-3 ${sidebarButton ? "block" : "hidden"} cursor-pointer`}
+                    className={`absolute top-0 p-3 ${sidebarButton ? "block" : "hidden"} cursor-pointer`}
                     onClick={() => {
                         setSidebar(!sidebar)
                         setSideBarButton(false);
                     }}
-                ><i className="ri-menu-line text-xl"></i></button>
+                ><i className="ri-menu-line text-xl font-semibold"></i></button>
+            </div>
+
+
+            <div className='hidden md:flex gap-2 top-2 items-center absolute py-2 h-8 md:w-2/12 right-4'>
+                <input type="text"
+                    className="w-full border-[1px] h-8 border-gray-300 rounded-md px-2 py-1" placeholder='Search' />
             </div>
         </>
 
