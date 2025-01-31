@@ -1,6 +1,5 @@
 import React from "react";
 import Items from "./Items";
-import GeneralList from "./GeneralList";
 import TopList from "./TopList";
 
 
@@ -25,7 +24,7 @@ const SidebarLayout = () => {
                 </div>
                 <TopList />
                 <Items />
-                <GeneralList />
+                
             </div>
             
             <div>
