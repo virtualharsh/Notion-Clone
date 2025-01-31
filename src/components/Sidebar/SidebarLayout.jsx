@@ -24,9 +24,9 @@ const SidebarLayout = () => {
                 </div>
                 <TopList />
                 <Items />
-                
+
             </div>
-            
+
             <div>
                 <button
                     className={`absolute top-0 p-3 ${sidebarButton ? "block" : "hidden"} cursor-pointer`}
@@ -38,10 +38,17 @@ const SidebarLayout = () => {
             </div>
 
 
-            <div className='hidden md:flex gap-2 top-2 items-center absolute py-2 h-8 md:w-2/12 right-4'>
-                <input type="text"
-                    className="w-full border-[1px] h-8 border-gray-300 rounded-md px-2 py-1" placeholder='Search' />
+            <div className="hidden md:flex gap-2 top-2 items-center absolute p-2 h-8 md:w-2/12 right-4">
+                <div className="relative w-full">
+                    <input
+                        type="text"
+                        className="w-full border-[1px] h-8 border-gray-300 rounded-md pl-8 pr-2 py-1"
+                        placeholder="Search"
+                    />
+                    <i className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 ri-search-line text-lg"></i>
+                </div>
             </div>
+
         </>
 
     )
