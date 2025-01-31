@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GeneralMenu = () => {
+const GeneralList = () => {
     return (
         <div className="w-full flex flex-col gap-y-2">
             <button
@@ -23,4 +23,4 @@ const GeneralMenu = () => {
     )
 }
 
-export default GeneralMenu;
+export default GeneralList;
