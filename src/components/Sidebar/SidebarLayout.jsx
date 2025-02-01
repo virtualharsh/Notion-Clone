@@ -11,7 +11,7 @@ const SidebarLayout = () => {
         <>
             {/* Sidebar */}
             <div
-                className={`${sidebar ? "w-64 opacity-100" : "w-0 opacity-0 -translate-x-full"
+                className={`${sidebar ? "w-full md:w-64 opacity-100" : "w-0 opacity-0 -translate-x-full"
                     } h-full overflow-y-auto overflow-x-hidden bg-gray-800 flex flex-col items-start justify-start p-4 gap-y-4 transition-all duration-500 ease-in-out fixed left-0 z-20`} // z-20 for sidebar
             >
                 {/* Sidebar Header */}
