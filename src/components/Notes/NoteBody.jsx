@@ -3,7 +3,7 @@ import React from "react";
 const NoteBody = () => {
     return (
         <div
-            className="w-full h-full flex flex-col items-center pt-20 gap-y-10 bg-gray-900 z-10"
+            className="w-full h-max md:h-full flex flex-col items-center pt-20 gap-y-10 bg-gray-900 z-10"
         >
 
             <h1 className="text-3xl font-bold text-gray-100">Good morning, Jay</h1>
