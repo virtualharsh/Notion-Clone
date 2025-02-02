@@ -4,8 +4,8 @@ import TopList from "./TopList";
 import NoteBody from "../Notes/NoteBody";
 
 const SidebarLayout = () => {
-    const [sidebar, setSidebar] = React.useState(true);
-    const [sidebarButton, setSideBarButton] = React.useState(false);
+    const [sidebar, setSidebar] = React.useState(false);
+    const [sidebarButton, setSideBarButton] = React.useState(true);
 
     return (
         <>
