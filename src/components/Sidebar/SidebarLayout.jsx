@@ -11,8 +11,7 @@ const SidebarLayout = () => {
         <>
             {/* Sidebar */}
             <div
-                className={`${sidebar ? "w-full md:w-64 opacity-100" : "w-0 opacity-0 -translate-x-full"
-                    } h-full overflow-y-auto overflow-x-hidden bg-gray-800 flex flex-col items-start justify-start p-4 gap-y-4 transition-all duration-500 ease-in-out fixed left-0 z-20`} // z-20 for sidebar
+                className={`${sidebar ? "w-full md:w-64 opacity-100" : "w-0 opacity-0 -translate-x-full"} h-full overflow-y-auto overflow-x-hidden bg-gray-800 flex flex-col items-start justify-start p-4 gap-y-4 transition-all duration-500 ease-in-out fixed left-0 z-20`} // z-20 for sidebar
             >
                 {/* Sidebar Header */}
                 <div className="w-full flex items-center justify-between p-1">
@@ -41,7 +40,7 @@ const SidebarLayout = () => {
             <div>
                 <button
                     className={`fixed top-0 p-3 ${sidebarButton ? "block" : "hidden"
-                        } cursor-pointer text-gray-300 hover:text-blue-400 transition-colors duration-300 left-4 z-30`} // z-30 for toggle button
+                        } cursor-pointer text-gray-300 hover:text-blue-400 transition-colors duration-300 left-4 z-50`} // z-30 for toggle button
                     onClick={() => {
                         setSidebar(!sidebar);
                         setSideBarButton(false);
@@ -51,14 +50,6 @@ const SidebarLayout = () => {
                 </button>
             </div>
 
-            {/* Main Content (NoteBody) */}
-            <div
-                className={`fixed h-full bg-gray-900 transition-all duration-500 ease-in-out ${sidebar ? "left-64 w-[calc(100%-16rem)]" : "left-0 w-full"
-                    }`}
-                style={{ zIndex: 0 }} // z-0 for main content
-            >
-                <NoteBody />
-            </div>
         </>
     );
 };

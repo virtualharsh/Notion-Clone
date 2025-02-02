@@ -5,7 +5,7 @@ import SidebarLayout from "./components/Sidebar/SidebarLayout";
 
 export default function App() {
     return (
-        <div className="w-full h-screen block md:flex">
+        <div className="w-full h-full block md:flex">
             <SidebarLayout/>
             <NoteBody/> 
         </div>
