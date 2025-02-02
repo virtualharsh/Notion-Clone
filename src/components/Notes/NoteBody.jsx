@@ -6,7 +6,7 @@ const NoteBody = () => {
             className="w-full h-max flex flex-col items-center pt-20 gap-y-10 bg-gray-900 z-10"
         >
 
-            <h1 className="text-5xl font-bold text-gray-100">Good morning, Jay</h1>
+            <h1 className="text-3xl font-bold text-gray-100">Good morning, Jay</h1>
             
             <div className="md:w-10/12 p-10 md:px-24 flex gap-6 flex-wrap justify-center">
                 {[...Array(20)].map((_, index) => (
