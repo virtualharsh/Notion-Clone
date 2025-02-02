@@ -3,13 +3,13 @@ import React from "react";
 const NoteBody = () => {
     return (
         <div
-            className="w-full h-full md:h-screen flex flex-col items-center pt-20 gap-y-10 bg-gray-900 z-10"
+            className="w-full h-max flex flex-col items-center pt-20 gap-y-10 bg-gray-900 z-10"
         >
 
-            <h1 className="text-4xl font-bold text-gray-100">Good morning, Jay</h1>
+            <h1 className="text-5xl font-bold text-gray-100">Good morning, Jay</h1>
             
-            <div className="w-full px-10 md:px-40 flex gap-6 flex-wrap justify-center">
-                {[...Array(5)].map((_, index) => (
+            <div className="md:w-10/12 p-10 md:px-24 flex gap-6 flex-wrap justify-center">
+                {[...Array(20)].map((_, index) => (
                     <div
                         key={index}
                         className="w-48 h-56 bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl flex flex-col px-4 py-4 justify-between border border-gray-700 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl hover:border-blue-500"
