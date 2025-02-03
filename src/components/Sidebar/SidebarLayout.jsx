@@ -1,7 +1,6 @@
 import React from "react";
 import Items from "./Items";
 import TopList from "./TopList";
-import NoteBody from "../Notes/NoteBody";
 
 const SidebarLayout = () => {
     const [sidebar, setSidebar] = React.useState(false);
