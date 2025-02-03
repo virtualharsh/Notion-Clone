@@ -8,7 +8,7 @@ const NoteBody = () => {
 
             <h1 className="text-4xl md:text-6xl font-bold text-gray-100 font-family-kirang tracking-wider">Good morning, User </h1>
 
-            <div className="hidden md:w-7/12 md:flex gap-8 flex-wrap justify-center">
+            <div className="hidden md:w-12/12 px-40 md:flex gap-8 flex-wrap justify-center">
                 {[...Array(5)].map((_, index) => (
                     <div
                         key={index}
