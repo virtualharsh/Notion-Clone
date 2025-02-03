@@ -27,7 +27,7 @@ const NoteBody = () => {
 
             <div className="w-full flex md:w-7/12 px-10 gap-y-2 flex-wrap">
                 {[...Array(20)].map((_, index) => (
-                    <div className="w-full h-max bg-gray-800 flex justify-between items-center rounded-lg p-4 text-lg hover:bg-gray-700">
+                    <div key={index} className="w-full h-max bg-gray-800 flex justify-between items-center rounded-lg p-4 text-lg hover:bg-gray-700">
                         <div className="flex items-center gap-x-4">
                             <i className="ri-file-text-line text-blue-400"></i>
                             <p className=" text-gray-100">Daily Task</p>
