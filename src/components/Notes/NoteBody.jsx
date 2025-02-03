@@ -8,7 +8,8 @@ const NoteBody = () => {
 
             <h1 className="text-4xl md:text-6xl font-bold text-gray-100 font-family-kirang tracking-wider">Good morning, User </h1>
 
-            <div className="hidden md:w-12/12 px-40 md:flex gap-8 flex-wrap justify-center">
+
+            <div className="hidden md:w-8/12 md:px-44 md:flex min-w-11/12 flex-wrap gap-2 lg:gap-4 justify-center">
                 {[...Array(5)].map((_, index) => (
                     <div
                         key={index}
@@ -25,7 +26,7 @@ const NoteBody = () => {
                 ))}
             </div>
 
-            <div className="w-full flex md:w-7/12 px-10 gap-y-2 flex-wrap">
+            <div className="w-full md:9/12 lg:w-7/12 flex flex-col px-12 gap-y-2 ">
                 {[...Array(20)].map((_, index) => (
                     <div key={index} className="w-full h-max bg-gray-800 flex justify-between items-center rounded-lg p-4 text-lg hover:bg-gray-700">
                         <div className="flex items-center gap-x-4">
@@ -41,6 +42,7 @@ const NoteBody = () => {
                 ))}
             </div>
         </div>
+
     );
 };
 
