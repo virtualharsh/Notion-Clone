@@ -61,24 +61,29 @@ const Items = () => {
 
     const menuActions = (index) => [
         {
-            label: "Edit",
-            icon: "ri-pencil-line",
-            handler: () => handleAction("edit", index),
-        },
-        {
-            label: "Delete",
-            icon: "ri-delete-bin-line",
-            handler: () => handleAction("delete", index),
-        },
-        {
-            label: "Move",
+            label: "Rename",
             icon: "ri-arrow-up-down-line",
-            handler: () => handleAction("move", index),
+            handler: () => handleAction("rename", index),
         },
         {
-            label: "Duplicate",
-            icon: "ri-file-copy-line",
-            handler: () => handleAction("duplicate", index),
+            label: "Favorite",
+            icon: "ri-star-line",
+            handler: () => handleAction("favorite", index),
+        },
+        {
+            label: "Trash",
+            icon: "ri-delete-bin-line",
+            handler: () => handleAction("trash", index),
+        },
+        {
+            label: "Copy Link",
+            icon: "ri-link",
+            handler: () => handleAction("copy", index),
+        },
+        {
+            label: "Settings",
+            icon: "ri-settings-fill",
+            handler: () => handleAction("setting", index),
         },
     ];
 
@@ -100,13 +105,17 @@ const Items = () => {
     return (
         <div className="w-full h-max overflow-hidden flex flex-col gap-y-2">
             {/* Task Header */}
-            <button className="flex p-0.5 items-center justify-between w-full font-bold text-gray-100">
-                Tasks
-                <i
-                    className={`ri-arrow-${taskVisible ? "up" : "down"
-                        }-s-line cursor-pointer text-gray-300 hover:text-gray-100`}
-                    onClick={() => setTaskVisible((prev) => !prev)}
-                ></i>
+            <button className="flex p-0.5 items-center justify-between w-full font-semibold text-gray-100">
+                <p className="w-max">Tasks</p>
+
+                <div className="w-full flex justify-end gap-x-2">
+                    <i className="ri-add-line cursor-pointer"></i>
+                    <i
+                        className={`ri-arrow-${taskVisible ? "up" : "down"
+                            }-s-line cursor-pointer text-gray-300 hover:text-gray-100`}
+                        onClick={() => setTaskVisible((prev) => !prev)}
+                    ></i>
+                </div>
             </button>
 
             <div className="overflow-y-auto">

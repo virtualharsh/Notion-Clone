@@ -10,13 +10,12 @@ const SidebarLayout = () => {
         <>
             {/* Sidebar */}
             <div
-                className={`${sidebar ? "w-full md:w-64 opacity-100" : "w-0 opacity-0 -translate-x-full"} h-full overflow-y-auto overflow-x-hidden bg-gray-800 flex flex-col items-start justify-start p-4 gap-y-4 transition-all duration-500 ease-in-out fixed left-0 z-20`} // z-20 for sidebar
+                className={`${sidebar ? "w-full md:w-64 opacity-100" : "w-0 opacity-0 -translate-x-full"} h-full overflow-y-auto overflow-x-hidden bg-gray-800 flex flex-col items-start justify-start p-5 md:p-3 gap-y-4 transition-all duration-500 ease-in-out fixed left-0 z-20`} // z-20 for sidebar
             >
                 {/* Sidebar Header */}
-                <div className="w-full flex items-center justify-between p-1">
-                    <button className="flex gap-x-3 text-lg font-extrabold text-gray-100 hover:text-blue-400 transition-colors duration-300">
-                        <i className="ri-list-check-3"></i>Jay's List
-                    </button>
+                <div className="w-full flex items-center justify-between px-1 font-bold">
+                    <h1 className="text-xl text-white font-family-quantico">User's list</h1>
+
                     <div>
                         <button
                             onClick={() => {

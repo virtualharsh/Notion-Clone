@@ -3,26 +3,40 @@ import React from "react";
 const NoteBody = () => {
     return (
         <div
-            className="w-full h-max md:h-full flex flex-col items-center pt-20 gap-y-10 bg-gray-900 z-10"
+            className="w-full h-max md:h-max flex flex-col items-center pt-20 pb-10 gap-y-10 bg-gray-900 z-10"
         >
 
-            <h1 className="text-3xl font-bold text-gray-100">Good morning, Jay</h1>
-            
-            <div className="md:w-10/12 p-10 md:px-24 flex gap-6 flex-wrap justify-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-100 font-family-kirang tracking-wider">Good morning, User </h1>
+
+            <div className="hidden md:w-11/12 md:flex gap-8 flex-wrap justify-center">
                 {[...Array(5)].map((_, index) => (
                     <div
                         key={index}
-                        className="w-48 h-56 bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl flex flex-col px-4 py-4 justify-between border border-gray-700 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl hover:border-blue-500"
-                        style={{ zIndex: 1 }} // Lower z-index for cards
-                    >
-                        <div className="flex flex-col gap-y-3">
-                            <i className="ri-file-text-line text-blue-400 text-3xl"></i>
-                            <p className="text-lg font-semibold text-gray-100">Daily Task</p>
-                            <p className="text-sm text-gray-300">
-                                Complete project milestones and review tasks.
-                            </p>
+                        className="flex flex-col justify-between p-4 w-40 h-44 border-2 text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl hover:border-blue-500 bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg">
+
+                        <div className="flex flex-col gap-x-1 gap-y-4">
+                            <i className="ri-file-text-line text-blue-400 md:text-3xl"></i>
+                            <p className=" text-gray-100">Daily Task</p>
                         </div>
+
                         <p className="text-sm text-gray-400">29 Jan 2024</p>
+                        <i className="absolute ri-star-fill text-yellow-100 top-3 right-3"></i>
+                    </div>
+                ))}
+            </div>
+
+            <div className="w-full flex md:w-7/12 px-10 gap-y-2 flex-wrap">
+                {[...Array(20)].map((_, index) => (
+                    <div key={index} className="w-full h-max bg-gray-800 flex justify-between items-center rounded-lg p-4 text-lg hover:bg-gray-700">
+                        <div className="flex items-center gap-x-4">
+                            <i className="ri-file-text-line text-blue-400"></i>
+                            <p className=" text-gray-100">Daily Task</p>
+                        </div>
+
+                        <div className="flex items-center gap-x-4">
+                            <i className="ri-star-fill text-yellow-100 cursor-pointer"></i>
+                            <i className="ri-menu-line cursor-pointer"></i>
+                        </div>
                     </div>
                 ))}
             </div>
