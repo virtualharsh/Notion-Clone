@@ -1,18 +1,5 @@
 import React, { useState } from "react";
 
-// Inline styles to hide scrollbars while still allowing scrolling
-const styles = {
-  scrollbarHide: {
-    WebkitOverflowScrolling: "touch",
-    msOverflowStyle: "none",
-    scrollbarWidth: "none",
-  },
-  // Additional CSS for Webkit-based browsers to hide scrollbars
-  hiddenScrollbar: {
-    overflowX: "auto",
-  },
-};
-
 const NoteBody = () => {
     return (
         <div
