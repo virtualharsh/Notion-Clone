@@ -78,7 +78,7 @@ const Items = () => {
     return (
         <div className="w-full h-max overflow-hidden flex flex-col gap-y-2">
             {/* Task Header */}
-            <button className="flex p-0.5 items-center justify-between w-full font-semibold text-gray-100">
+            <button className="flex p-0.5 items-center justify-between w-full font-semibold text-gray-100 focus:outline-none">
                 <p className="w-max">Tasks</p>
                 <div className="w-full flex justify-end gap-x-2">
                     <i className="ri-add-line cursor-pointer"></i>
@@ -92,14 +92,14 @@ const Items = () => {
             {/* Collapsible List */}
             <div
                 ref={contentRef}
-                className="overflow-hidden transition-all duration-300"
+                className="overflow-y-scroll transition-all duration-300 h-8/12"
                 style={{
                     maxHeight: taskVisible ? `${contentRef.current?.scrollHeight}px` : "0px",
                 }}
             >
                 <div className="w-full">
                     <ul className="flex flex-col gap-y-0.5">
-                        {[...Array(5)].map((_, index) => (
+                        {[...Array(20)].map((_, index) => (
                             <div
                                 key={index}
                                 className="p-1 pr-1.5 flex items-center justify-between hover:bg-blue-400 hover:rounded-lg transition-colors duration-200"
