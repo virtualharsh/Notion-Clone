@@ -14,7 +14,7 @@ const PopupMenu = ({ x, y, onClose, actions }) => {
         return () => document.removeEventListener("click", handleClickOutside);
     }, [onClose]);
 
-    // Calculate adjusted position to prevent overflow
+    // Prevent menu from overflowing
     const menuWidth = 160;
     const menuHeight = 112;
     const adjustedX = window.innerWidth - x < menuWidth ? x - menuWidth : x;
@@ -27,7 +27,7 @@ const PopupMenu = ({ x, y, onClose, actions }) => {
             style={{
                 left: adjustedX,
                 top: adjustedY,
-                zIndex: 1000, // Ensure it's above other components
+                zIndex: 1000,
             }}
         >
             <ul className="flex flex-col gap-0.5 w-full">
@@ -53,53 +53,26 @@ const PopupMenu = ({ x, y, onClose, actions }) => {
 const Items = () => {
     const [taskVisible, setTaskVisible] = React.useState(true);
     const [activeMenu, setActiveMenu] = React.useState(null);
+    const contentRef = React.useRef(null);
 
     const handleAction = (action, index) => {
         console.log(`${action} item ${index + 1}`);
-        // Add your action handling logic here
     };
 
     const menuActions = (index) => [
-        {
-            label: "Rename",
-            icon: "ri-arrow-up-down-line",
-            handler: () => handleAction("rename", index),
-        },
-        {
-            label: "Favorite",
-            icon: "ri-star-line",
-            handler: () => handleAction("favorite", index),
-        },
-        {
-            label: "Trash",
-            icon: "ri-delete-bin-line",
-            handler: () => handleAction("trash", index),
-        },
-        {
-            label: "Copy Link",
-            icon: "ri-link",
-            handler: () => handleAction("copy", index),
-        },
-        {
-            label: "Settings",
-            icon: "ri-settings-fill",
-            handler: () => handleAction("setting", index),
-        },
+        { label: "Rename", icon: "ri-file-edit-fill", handler: () => handleAction("rename", index) },
+        { label: "Favorite", icon: "ri-star-line", handler: () => handleAction("favorite", index) },
+        { label: "Trash", icon: "ri-delete-bin-line", handler: () => handleAction("trash", index) },
+        { label: "Copy Link", icon: "ri-link", handler: () => handleAction("copy", index) },
+        { label: "Settings", icon: "ri-settings-fill", handler: () => handleAction("setting", index) },
     ];
 
     const handleMenuClick = (e, index) => {
         e.stopPropagation();
         const rect = e.currentTarget.getBoundingClientRect();
-        if (activeMenu && activeMenu.index === index) {
-            setActiveMenu(null); // Close the menu if it's already open for the same item
-        } else {
-            setActiveMenu({
-                type: "icon",
-                index,
-                x: rect.right,
-                y: rect.bottom,
-            });
-        }
+        setActiveMenu((prev) =>
+            prev && prev.index === index ? null : { type: "icon", index, x: rect.right, y: rect.bottom }
+        );
     };
 
     return (
@@ -107,34 +80,32 @@ const Items = () => {
             {/* Task Header */}
             <button className="flex p-0.5 items-center justify-between w-full font-semibold text-gray-100">
                 <p className="w-max">Tasks</p>
-
                 <div className="w-full flex justify-end gap-x-2">
                     <i className="ri-add-line cursor-pointer"></i>
                     <i
-                        className={`ri-arrow-${taskVisible ? "up" : "down"
-                            }-s-line cursor-pointer text-gray-300 hover:text-gray-100`}
+                        className={`ri-arrow-${taskVisible ? "up" : "down"}-s-line cursor-pointer text-gray-300 hover:text-gray-100`}
                         onClick={() => setTaskVisible((prev) => !prev)}
                     ></i>
                 </div>
             </button>
 
-            <div className="overflow-y-auto">
+            {/* Collapsible List */}
+            <div
+                ref={contentRef}
+                className="overflow-hidden transition-all duration-300"
+                style={{
+                    maxHeight: taskVisible ? `${contentRef.current?.scrollHeight}px` : "0px",
+                }}
+            >
                 <div className="w-full">
-                    <ul
-                        className={`${taskVisible ? "flex" : "hidden"} flex-col gap-y-0.5`}
-                    >
+                    <ul className="flex flex-col gap-y-0.5">
                         {[...Array(5)].map((_, index) => (
                             <div
                                 key={index}
                                 className="p-1 pr-1.5 flex items-center justify-between hover:bg-blue-400 hover:rounded-lg transition-colors duration-200"
                                 onContextMenu={(e) => {
                                     e.preventDefault();
-                                    setActiveMenu({
-                                        type: "context",
-                                        index,
-                                        x: e.pageX,
-                                        y: e.pageY,
-                                    });
+                                    setActiveMenu({ type: "context", index, x: e.pageX, y: e.pageY });
                                 }}
                             >
                                 <li className="text-gray-200 rounded-md text-md font-extralight">
@@ -154,6 +125,7 @@ const Items = () => {
                 </div>
             </div>
 
+            {/* Context Menu */}
             {activeMenu && (
                 <PopupMenu
                     x={activeMenu.x}
