@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme{
+    --font-family-quantico: "Quicksand","sans-serif";
+    --font-family-kirang: "Kirang Haerang", "cursive";
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: gray;
+    /* border-radius: 10px; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
