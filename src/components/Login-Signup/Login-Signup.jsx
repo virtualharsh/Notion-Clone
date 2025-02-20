@@ -16,7 +16,6 @@ export default function AuthForm({ onLoginSuccess }) {
         setError("Invalid email or password");
       }
     } else {
-    //   alert("Sign-up successful!");
     }
   };
 
