@@ -1,22 +1,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-export default function AuthForm({ onLoginSuccess }) {
+export default function Login() {
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (isLogin) {
-            if (email === "admin" && password === "admin") {
-                onLoginSuccess();
-            } else {
-                setError("Invalid email or password");
-            }
-        } else {
-        }
+        navigate('/dashboard')
     };
 
     return (
@@ -31,7 +25,6 @@ export default function AuthForm({ onLoginSuccess }) {
                     {isLogin ? "Login" : "Sign Up"}
                 </h2>
 
-                {error && <p className="text-red-400 text-center">{error}</p>}
 
                 <form className="space-y-4" onSubmit={handleSubmit}>
                     {!isLogin && (

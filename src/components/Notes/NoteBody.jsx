@@ -61,7 +61,7 @@ const NoteBody = () => {
     const menuActions = (index) => [
         {
             label: "Rename",
-            icon: "ri-arrow-up-down-line",
+            icon: "ri-file-edit-line",
             handler: () => handleAction("rename", index),
         },
         {
