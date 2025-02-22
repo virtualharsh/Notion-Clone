@@ -62,7 +62,7 @@ const Items = () => {
     const menuActions = (index) => [
         {
             label: "Rename",
-            icon: "ri-pencil-line",
+            icon: "ri-file-edit-fill",
             handler: () => handleAction("rename", index),
         },
         {
