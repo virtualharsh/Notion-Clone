@@ -14,7 +14,7 @@ const SidebarLayout = () => {
             >
                 {/* Sidebar Header */}
                 <div className="w-full flex items-center justify-between px-1 font-bold">
-                    <h1 className="text-xl text-white font-family-quantico">User's list</h1>
+                    <h1 className="text-xl text-white font-family-quantico">Taskk</h1>
 
                     <div>
                         <button
